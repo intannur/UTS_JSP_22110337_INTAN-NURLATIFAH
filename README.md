@@ -4,13 +4,16 @@ Sistem sederhana bioskop online untuk memesan film sesuai yang kita inginkan
 
 Hasil Output : 
 index.jsp
-![image](https://github.com/user-attachments/assets/decd8474-1792-48e8-acd1-6408838ceac8)
+![image](https://github.com/user-attachments/assets/5f1e8905-5ea0-4aee-9ba1-d53cfbb5958c)
+
 
 formpesan.jsp
-![image](https://github.com/user-attachments/assets/94159792-f0c5-4b19-adae-ea48f25e4fab)
+![image](https://github.com/user-attachments/assets/0c20b102-d5de-4f5b-9c42-6180a890c4af)
+
 
 struk.jsp
-![image](https://github.com/user-attachments/assets/d093c379-d2f4-4e8b-9c33-0170b6570172)
+![image](https://github.com/user-attachments/assets/8cdffe99-f8ae-4c9e-986d-5c12ebf57d4f)
+
 
 Cara Menjalankan Aplikasi:
 1. Pilih film yang diinginkan pada halaman Daftar Film (index.jsp)
