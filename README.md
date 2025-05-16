@@ -5,8 +5,10 @@ Sistem sederhana bioskop online untuk memesan film sesuai yang kita inginkan
 Hasil Output : 
 index.jsp
 ![image](https://github.com/user-attachments/assets/decd8474-1792-48e8-acd1-6408838ceac8)
+
 formpesan.jsp
 ![image](https://github.com/user-attachments/assets/94159792-f0c5-4b19-adae-ea48f25e4fab)
+
 struk.jsp
 ![image](https://github.com/user-attachments/assets/d093c379-d2f4-4e8b-9c33-0170b6570172)
 
