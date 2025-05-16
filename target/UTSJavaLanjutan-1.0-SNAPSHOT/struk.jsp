@@ -15,82 +15,83 @@
     }
     int total = jumlah * harga;
 %>
+<!DOCTYPE html>
 <html>
 <head>
-    <head>
-    <title>Struk Transaksi</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    
+    <title>Struk Pemesanan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Bebas+Neue&display=swap" rel="stylesheet">
     <style>
-        body.container {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background-color: #f7f9fc;
-            border-radius: 10px;
-            font-family: "Roboto Mono", monospace;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            color: #333;
+        body {
+            background-color: #051923;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
         }
-
+        .struk-card {
+            background-color: #003554;
+            border-radius: 12px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
         h2 {
+            font-family: 'Bebas Neue', cursive;
             text-align: center;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            font-weight: 700;
-            font-size: 2em;
-            letter-spacing: 1px;
+            color: #e7ecef;
+            margin-bottom: 25px;
+            font-size: 40px;
         }
-
         ul {
             list-style-type: none;
             padding: 0;
         }
-
         ul li {
-            background: #e1ecf7;
-            margin-bottom: 15px;
-            padding: 15px 20px;
+            background-color: #c0c0c0;
+            padding: 12px 20px;
+            margin-bottom: 12px;
             border-radius: 6px;
-            font-size: 1.1em;
-            box-shadow: inset 0 1px 3px rgba(255,255,255,0.6);
+            font-size: 16px;
+            color: black;
         }
-
-        ul li:nth-child(odd) {
-            background: #d0dff3;
+        h3 {
+            text-align: center;
+            color: #ccc;
+            margin-top: 20px;
         }
         .btn-custom {
-            background-color: #000080;
+            background-color: #051923;
             border: none;
             width: 100%;
             padding: 12px;
-            font-weight: 600;
-            margin-top: 1.5rem;
+            font-weight: bold;
+            margin-top: 20px;
             color: white;
             border-radius: 6px;
             transition: background-color 0.3s ease;
         }
         .btn-custom:hover {
-            background-color: #2F539B;
-        }
-        h3{
-            text-align: center;
+            background-color: #8b8c89;
         }
     </style>
 </head>
-
-<body class="container">
-    <h2>Struk Pemesanan</h2>
-    <ul>
-        <li>Nama Pemesan: <%= nama %></li>
-        <li>Film: <%= judul %></li>
-        <li>Jam Tayang: <%= jam %></li>
-        <li>Jumlah Tiket: <%= jumlah %></li>
-        <li>Total Harga: Rp <%= total %></li>
-    </ul>
-    <h3>Selamat Menonton!</h3>
-    <a href="index.jsp" class="btn btn-custom btn-lg mt-3">Daftar Film</a>
+<body>
+    <div class="struk-card">
+        <h2>Struk Pemesanan</h2>
+        <ul>
+            <li><strong>Nama Pemesan:</strong> <%= nama %></li>
+            <li><strong>Film:</strong> <%= judul %></li>
+            <li><strong>Jam Tayang:</strong> <%= jam %></li>
+            <li><strong>Jumlah Tiket:</strong> <%= jumlah %></li>
+            <li><strong>Total Harga:</strong> Rp <%= total %></li>
+        </ul>
+        <h3>Selamat Menonton!</h3>
+        <a href="index.jsp" class="btn btn-custom">Kembali ke Daftar Film</a>
+    </div>
 </body>
 </html>

@@ -1,10 +1,9 @@
 <%@ page import="java.util.*, model.Film" %>
 <%
     List<Film> daftarFilm = new ArrayList<>();
-    daftarFilm.add(new Film("Mumu: Silent Love", "Drama", 120, 50000, new String[]{"13:00", "17:00", "20:00"}));
-    daftarFilm.add(new Film("Along With The Gods", "Laga", 180, 45000, new String[]{"12:00", "16:00"}));
-    daftarFilm.add(new Film("Dark Nuns", "Horror", 120, 45000, new String[]{"18.00", "21.00"}));
-    // Simpan ke session
+    daftarFilm.add(new Film("Mumu: Silent Love", "Drama", 120, 50000, new String[]{"13:00", "17:00", "20:00"}, "img/mumu.jpg"));
+    daftarFilm.add(new Film("Along With The Gods", "Laga", 180, 45000, new String[]{"12:00", "16:00"},"img/along.jpg"));
+    daftarFilm.add(new Film("Dark Nuns", "Horror", 120, 45000, new String[]{"18.00", "21.00"},"img/dark.jpg"));
     session.setAttribute("daftarFilm", daftarFilm);
 %>
 
@@ -12,70 +11,84 @@
 <head>
     <title>Bioskop Online</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(to right, #2c3e50, #3498db);
-            color: white;
+            background-color: #051923;
+            color: #e7ecef;
+            font-family: 'Roboto', sans-serif;
             min-height: 100vh;
-            font-family: "Roboto Mono", monospace;
         }
         h2 {
-            color: #E5E4E2;
-            margin-bottom: 30px;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 48px;
             text-align: center;
+            margin: 40px 0;
+            color: #e7ecef;
         }
-        table {
-            background-color: rgba(44, 62, 80, 0.85);
-            border-radius: 15px;
+        .film-card {
+            background-color: #003554;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
-        th, td {
-            vertical-align: middle !important;
+        .film-card:hover {
+            transform: scale(1.05);
         }
-        th {
-            background-color: #34495e;
-            font-weight: 900;
-            font-size: 16pt;
+        .film-img {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
         }
-        td {
-            font-size: 14pt;
+        .film-info {
+            padding: 15px;
+        }
+        .film-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .film-meta {
+            font-size: 14px;
+            margin-top: 5px;
+            color: #ccc;
         }
         .btn-custom {
-            background-color: #e67e22;
-            border: none;
-            font-size: 14pt;
+            background-color: #051923;
             color: white;
-            padding: 8px 20px;
-            border-radius: 10px;
-            transition: background-color 0.3s ease;
+            border: none;
+            padding: 8px 16px;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: background 0.3s;
         }
         .btn-custom:hover {
-            background-color: #d35400;
-            color: white;
+            background-color: #8b8c89;
         }
     </style>
 </head>
-<body class="container py-5">
+<body class="container">
+
     <h2>Daftar Film</h2>
-    <table class="table table-bordered text-center align-middle">
-    <tr>
-        <th>Judul</th><th>Genre</th><th>Durasi</th><th>Harga</th><th>Jam Tayang</th><th>Aksi</th>
-    </tr>
-    <% for (Film film : daftarFilm) { %>
-        <tr>
-            <td><%= film.getJudul() %></td>
-            <td><%= film.getGenre() %></td>
-            <td><%= film.getDurasi() %> menit</td>
-            <td>Rp <%= film.getHarga() %></td>
-            <td><%= String.join(", ", film.getJamTayang()) %></td>
-            <td><a href="formpesan.jsp?judul=<%= film.getJudul() %>" class="btn btn-custom btn-lg mt-3">Pesan</a></td>
-        </tr>
-    <% } %>
-</table>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% for (Film film : daftarFilm) { %>
+            <div class="col">
+                <div class="film-card">
+                    <div class="film-img" style="background-image: url('<%= film.getGambarURL() %>');"></div>
+                        <div class="film-info">
+                        <div class="film-title"><%= film.getJudul() %></div>
+                        <div class="film-meta">
+                            Genre: <%= film.getGenre() %><br>
+                            Durasi: <%= film.getDurasi() %> menit<br>
+                            Harga: Rp <%= film.getHarga() %><br>
+                            Jam Tayang: <%= String.join(", ", film.getJamTayang()) %>
+                        </div>
+                        <a href="formpesan.jsp?judul=<%= film.getJudul() %>" class="btn btn-custom">Pesan</a>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
 
 </body>
 </html>
